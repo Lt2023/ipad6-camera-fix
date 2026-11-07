@@ -1,0 +1,6 @@
+Package: local.j71b.camera-jetsam
+Version: 1.1
+Architecture: iphoneos-arm
+Depends: firmware (= 18.7.2), cy+model.ipad (= 7.5), coreutils
+Maintainer: Local build
+Description: J71b camera daemon jetsam policy for build 22H124
