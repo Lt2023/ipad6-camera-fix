@@ -33,3 +33,9 @@ sudo launchctl print user/501/com.apple.cameracaptured
 ```
 
 两个安装包将生成到 `packages/`。源码采用 MIT 许可证。
+
+## 已知问题
+### 1. Codex 配对功能闪退
+
+> [!NOTE]
+> **猜想：** `DataScannerViewController` 可能需要 **A12 或更新的芯片**。

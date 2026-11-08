@@ -21,3 +21,9 @@ Remove CameraUI first and relaunch Camera. Remove the Jetsam package to restore 
 ## Build
 
 On macOS with Xcode, an iPhoneOS SDK, Python 3, ar and ldid on PATH, run `./build.sh`. Both packages are written to `packages/`. Source code is licensed under MIT.
+
+## Known issues
+### 1.Codex Pair Crash
+
+> [!NOTE]
+> **Hypothesis:** `DataScannerViewController` may require an **A12 chip or newer**.
