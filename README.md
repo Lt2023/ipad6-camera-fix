@@ -1,5 +1,7 @@
 # iPad 6 Camera Fix
 
+**English** | [简体中文](README.zh-CN.md)
+
 Camera fixes for **iPad (6th generation, Wi-Fi), iPad7,5 / J71b**, running a port of iPadOS 18 with a rootful bootstrap and ElleKit. Cellular models, rootless installations and other major OS versions are outside the target.
 
 ## Packages

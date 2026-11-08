@@ -1,5 +1,7 @@
 # Compatibility and validation
 
+**English** | [简体中文](VALIDATION.zh-CN.md)
+
 | Release | Evidence |
 | --- | --- |
 | Jetsam 1.1 and CameraUI 0.1 | Hardware testing on iPad7,5, iPadOS 18.7.2 (22H124), rootful, ElleKit 1.2. The camera service adopted its dedicated limits and camera functionality was reported restored. |
