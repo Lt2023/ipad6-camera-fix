@@ -1,7 +1,7 @@
 Package: local.j71b.cameraui-test
 Name: J71b CameraUI Test
-Version: 0.1
+Version: 0.2
 Architecture: iphoneos-arm
 Maintainer: Local
-Depends: ellekit, local.j71b.camera-jetsam (= 1.1), firmware (= 18.7.2), cy+model.ipad (= 7.5)
+Depends: ellekit, local.j71b.camera-jetsam (>= 1.2), firmware (>= 18.0), firmware (<< 19.0), cy+model.ipad (= 7.5)
 Description: Experimental Camera-only wide-angle capability fallback

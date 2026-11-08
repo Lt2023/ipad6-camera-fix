@@ -1,0 +1,10 @@
+#!/bin/sh
+set -eu
+# Import the rollback pair before dpkg replaces the 1.1 payload.
+s=/usr/share/local-j71b-camera
+d=/var/lib/local-j71b-camera
+if [ "${2:-}" = 1.1 ] && cmp -s "$s/patched" /System/Library/LaunchDaemons/com.apple.jetsamproperties.J71b.plist; then
+ install -d -m 700 "$d"
+ cp "$s/original" "$d/original"
+ cp "$s/patched" "$d/patched"
+fi

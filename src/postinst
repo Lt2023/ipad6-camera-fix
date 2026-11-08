@@ -1,15 +1,4 @@
 #!/bin/sh
 set -eu
 [ "$1" = configure ] || exit 0
-f=${DPKG_ROOT:-}/System/Library/LaunchDaemons/com.apple.jetsamproperties.J71b.plist
-s=${DPKG_ROOT:-}/usr/share/local-j71b-camera/patched
-hash() { sha256sum "$1" | cut -d' ' -f1; }
-v=$(hash "$f")
-[ "$v" != 46d191569d46c6a32d489d57560537840deb54dc0f79b8a93ba252a3e51be06a ] || exit 0
-[ "$v" = b80a3facc9b6a4be90692e2a6dd771442f926991e05ca61c64ae8fe64c70a16c ] && [ "$(hash "$s")" = 46d191569d46c6a32d489d57560537840deb54dc0f79b8a93ba252a3e51be06a ] || { echo "Unexpected policy hash; stopped" >&2; exit 1; }
-t=$(mktemp "$f.tmp.XXXXXX")
-trap 'rm -f "$t"' EXIT
-cp -p "$f" "$t"
-cat "$s" > "$t"
-[ "$(hash "$t")" = 46d191569d46c6a32d489d57560537840deb54dc0f79b8a93ba252a3e51be06a ]
-mv -f "$t" "$f"
+exec /usr/libexec/j71b-camera-policy configure

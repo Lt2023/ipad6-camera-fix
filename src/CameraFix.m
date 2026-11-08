@@ -14,7 +14,7 @@ static BOOL front(id x,SEL s){return check(x,s,1);}
 static BOOL video(id x,SEL s){return check(x,s,2);}
 __attribute__((constructor)) static void start(void){ @autoreleasepool {
  char hw[64]={0},build[64]={0};size_t n=sizeof(hw),m=sizeof(build);
- if(sysctlbyname("hw.machine",hw,&n,0,0)||sysctlbyname("kern.osversion",build,&m,0,0)||strcmp(hw,"iPad7,5")||strcmp(build,"22H124")||![[NSBundle mainBundle].bundleIdentifier isEqual:@"com.apple.camera"])return;
+ if(sysctlbyname("hw.machine",hw,&n,0,0)||sysctlbyname("kern.osversion",build,&m,0,0)||strcmp(hw,"iPad7,5")||[NSProcessInfo processInfo].operatingSystemVersion.majorVersion != 18||![[NSBundle mainBundle].bundleIdentifier isEqual:@"com.apple.camera"])return;
  Class c=NSClassFromString(@"CAMCaptureCapabilities"); const char *names[]={"isBackCameraSupported","isFrontCameraSupported","isVideoSupported"}; IMP hooks[]={(IMP)back,(IMP)front,(IMP)video};
  for(int i=0;i<3;i++){SEL s=sel_registerName(names[i]); Method meth=class_getInstanceMethod(c,s);char t[16]={0};if(!meth||method_getNumberOfArguments(meth)!=2)continue;method_getReturnType(meth,t,sizeof(t));if(strcmp(t,"B")&&strcmp(t,"c"))continue;orig[i]=method_getImplementation(meth);class_replaceMethod(c,s,hooks[i],method_getTypeEncoding(meth));NSLog(@"J71bCameraFix installed %s",names[i]);}
 }}
